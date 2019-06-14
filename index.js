@@ -1,24 +1,19 @@
-// index.js: The file containing the logic for the course of the game, which depends on `Word.js`
-
 var Word = require('./Word.js');
-
 var inquirer = require('inquirer');
-
-
 var picked;
 var pickedWord;
 var guesses;
 var guessesLeft;
-// array of word
-var wordBank = ["Headlines", "One dance", "Work", "Hotline bling", "Best i ever had", "Started from the bottom", "Forever", "Nice for what", "Take care", "God plan", "In my feeling", "Im upset", "Finesse", "I got my eyes on you", "Find your love", "Controlla", "Passionfruit", "Over", "Successful", "No new friends"];
+var wordBank = ["test one" , "test two" ,"test three" ,"test four" ,"test five" ,"test six" ,"test seven" ,"test eight" ,];
+var chalkAnimation = require("chalk-animation");
 
-// Randomly selects a word and uses the `Word` constructor to store it
+
+
 function randomWord (wordBank) {
     var index = Math.floor(Math.random() * wordBank.length);
     return wordBank[index];
+    
 }
-
-// Prompts the user for each guess and keeps track of the user's remaining guesses
 var questions = [
     {
         name: 'letterGuessed',
@@ -41,9 +36,6 @@ var questions = [
         }
     }
 ];
-
-// function to reset the game
-
 function resetGame() {
     pickedWord = randomWord(wordBank);
     picked = new Word(pickedWord);
