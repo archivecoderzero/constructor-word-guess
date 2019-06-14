@@ -8,16 +8,14 @@ var wordBank = ["test one" , "test two" ,"test three" ,"test four" ,"test five" 
 var chalkAnimation = require("chalk-animation");
 
 
-intro();
+
 
 
 function intro() {
 
     let str = 'Welcome to Word Guess Game';
 const rainbow = chalkAnimation.rainbow(str);
- 
-// Add a new dot every second
-setInterval(() => {
+ setInterval(() => {
     rainbow.replace(str += '.');
 }, 1000);
 
@@ -31,6 +29,7 @@ setInterval(() => {
 
 function randomWord (wordBank) {
     var index = Math.floor(Math.random() * wordBank.length);
+    intro();
     return wordBank[index];
     
 }
