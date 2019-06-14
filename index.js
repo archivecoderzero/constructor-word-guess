@@ -8,18 +8,25 @@ var guesses;
 var guessesLeft;
 var wordBank = ["test one" , "test two" ,"test three" ,"test four" ,"test five" ,"test six" ,"test seven" ,"test eight" ,];
 
-
+initialize();
 intro();
+
+function initialize() {
+    console.log("")    
+}
 
 
 function intro() {
 
-    const rainbow = chalkAnimation.rainbow('Welcome To Word Guess Game').start(); // Don't start the animation
+    const rainbow = chalkAnimation.rainbow('Welcome to Word Guess Game'); // Animation starts
  
-    rainbow.render(); // Display the first frame
+    setTimeout(() => {
+        rainbow.stop(); // Animation stops
+    }, 1000);
      
-    const frame = rainbow.frame(); // Get the second frame
-    console.log(frame);
+    setTimeout(() => {
+        rainbow.start(); // Animation resumes
+    }, 2000);
 
     
 }
