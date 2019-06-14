@@ -1,35 +1,33 @@
 var Word = require('./Word.js');
 var inquirer = require('inquirer');
+var chalkAnimation = require("chalk-animation");
+
 var picked;
 var pickedWord;
 var guesses;
 var guessesLeft;
 var wordBank = ["test one" , "test two" ,"test three" ,"test four" ,"test five" ,"test six" ,"test seven" ,"test eight" ,];
-var chalkAnimation = require("chalk-animation");
 
 
-
+intro();
 
 
 function intro() {
 
-    let str = 'Welcome to Word Guess Game';
-const rainbow = chalkAnimation.rainbow(str);
- setInterval(() => {
-    rainbow.replace(str += '.');
-}, 1000);
+    const rainbow = chalkAnimation.rainbow('Welcome To Word Guess Game').start(); // Don't start the animation
+ 
+    rainbow.render(); // Display the first frame
+     
+    const frame = rainbow.frame(); // Get the second frame
+    console.log(frame);
 
-
-
-
-
+    
 }
 
 
 
 function randomWord (wordBank) {
     var index = Math.floor(Math.random() * wordBank.length);
-    intro();
     return wordBank[index];
     
 }
