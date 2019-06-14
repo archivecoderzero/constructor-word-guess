@@ -22,6 +22,4 @@ function Word(wordString) {
         return this.letterArray.every((currentValue) => currentValue.guessed);
     }
 }   
-
-
 module.exports = Word;
