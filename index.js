@@ -79,10 +79,11 @@ function resetGame() {
     picked = new Word(pickedWord);
     picked.makeGuess(' ');
     guesses = [];
-    guessesLeft = 10;
+    guessesLeft = 5;
 }
 
 function game() {
+
     if (!picked.allGuessed() && guessesLeft > 0) {
         console.log(picked + '');
     }
@@ -111,21 +112,20 @@ function game() {
                     guessesLeft--;
                 }
             } else {
-                console.log('You already guessed', currentGuess);
+                console.log('YOU GUESSED THAT ALREADY', currentGuess);
             }
         }
 
         if (!picked.allGuessed()) {
             if (guessesLeft < 1) {
-                console.log('no more guesses');
-                console.log(pickedWord, 'was correct.');
-
+                console.log('NO MORE GUESS');
+                console.log(pickedWord, ' IS THE WORD');
             } else {
-                console.log('guesses so far:', guesses.join(' '));
-                console.log('guesses remainig:', guessesLeft);
+                console.log('YOUR GUESS SO FAR ', guesses.join(' '));
+                console.log('REMAINING GUESS ', guessesLeft);
             }
         } else {
-            console.log(pickedWord, 'is correct!');
+            console.log(pickedWord, ' IS CORRECT!');
         }
 
         game();
