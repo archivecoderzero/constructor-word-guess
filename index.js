@@ -21,13 +21,21 @@ function initialize() {
         ])
         .then(function (inquirerResponse) {
             function intro() {
-                const rainbow = chalkAnimation.rainbow('Welcome to Word Guess Game ' + inquirerResponse.username); // Animation starts
+                const rainbow = chalkAnimation.rainbow('Welcome to Word Guess Game ' + 
+                
+                inquirerResponse.username); // Animation starts
                 setTimeout(() => {
                     rainbow.start(); // Animation resumes
                 }, 0)
                 setTimeout(() => {
-                    console.log("exit")
-                    initialize.exit();
+                    const rainbow = chalkAnimation.rainbow("Press a key to continue"); // Animation starts
+                    setTimeout(() => {
+                        rainbow.start(); // Animation resumes
+                    }, 0)
+    
+
+
+
                 }, 1000); 
             }
             intro();
