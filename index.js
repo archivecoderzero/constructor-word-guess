@@ -6,47 +6,51 @@ var picked;
 var pickedWord;
 var guesses;
 var guessesLeft;
-var wordBank = ["test one" , "test two" ,"test three" ,"test four" ,"test five" ,"test six" ,"test seven" ,"test eight" ,];
+var wordBank = ["test one", "test two", "test three", "test four", "test five", "test six", "test seven", "test eight",];
 
 initialize();
-intro();
 
 function initialize() {
-    console.log("")    
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "What is your name?",
+                name: "username"
+            },
+        ])
+        .then(function (inquirerResponse) {
+            function intro() {
+                const rainbow = chalkAnimation.rainbow('Welcome to Word Guess Game ' + inquirerResponse.username); // Animation starts
+                setTimeout(() => {
+                    rainbow.start(); // Animation resumes
+                }, 0);
+            }
+            intro();
+
+            resetGame();
+            game();
+        
+        });
+
 }
 
 
-function intro() {
 
-    const rainbow = chalkAnimation.rainbow('Welcome to Word Guess Game'); // Animation starts
- 
-    setTimeout(() => {
-        rainbow.stop(); // Animation stops
-    }, 1000);
-     
-    setTimeout(() => {
-        rainbow.start(); // Animation resumes
-    }, 2000);
-
-    
-}
-
-
-
-function randomWord (wordBank) {
+function randomWord(wordBank) {
     var index = Math.floor(Math.random() * wordBank.length);
     return wordBank[index];
-    
+
 }
 var questions = [
     {
         name: 'letterGuessed',
         message: 'Guess a letter',
-        validate: function(value) {
+        validate: function (value) {
             var valid = (value.length === 1) && ('abcdefghijklmnopqrstuvwxyz'.indexOf(value.charAt(0).toLowerCase()) !== -1);
             return valid || 'Please enter a letter';
         },
-        when: function() {
+        when: function () {
             return (!picked.allGuessed() && guessesLeft > 0);
         }
     },
@@ -55,7 +59,7 @@ var questions = [
         name: 'playAgain',
         message: 'You want to play again?',
 
-        when: function() {
+        when: function () {
             return (picked.allGuessed() || guessesLeft <= 0);
         }
     }
@@ -74,20 +78,28 @@ function game() {
     }
 
     inquirer.prompt(questions).then(answers => {
-        if('playAgain' in answers && !answers.playAgain) {
-            console.log('thanks for playing');
-            process.exit();
+        if ('playAgain' in answers && !answers.playAgain) {
+            const glitch = chalkAnimation.glitch('Good Bye! Thanks For Playing!'); 
+            const glitch2 = chalkAnimation.glitch('Good Bye! Thanks For Playing!'); 
+            const glitch3 = chalkAnimation.glitch('Good Bye! Thanks For Playing!'); 
+            const glitch4 = chalkAnimation.glitch('Good Bye! Thanks For Playing!'); 
+            setTimeout(() => {
+                glitch.start(); 
+            }, 0);    
+            setTimeout(() => {
+                process.exit();
+            }, 3000); 
         }
         if (answers.playAgain) {
             resetGame();
         }
-        if(answers.hasOwnProperty('letterGuessed')) {
+        if (answers.hasOwnProperty('letterGuessed')) {
             var currentGuess = answers.letterGuessed.toLowerCase();
 
-            if(guesses.indexOf(currentGuess) === -1) {
+            if (guesses.indexOf(currentGuess) === -1) {
                 guesses.push(currentGuess);
                 picked.makeGuess(currentGuess);
-                if(pickedWord.toLowerCase().indexOf(currentGuess.toLowerCase()) === -1) {
+                if (pickedWord.toLowerCase().indexOf(currentGuess.toLowerCase()) === -1) {
                     guessesLeft--;
                 }
             } else {
@@ -95,8 +107,8 @@ function game() {
             }
         }
 
-        if(!picked.allGuessed()) {
-            if(guessesLeft < 1) {
+        if (!picked.allGuessed()) {
+            if (guessesLeft < 1) {
                 console.log('no more guesses');
                 console.log(pickedWord, 'was correct.');
 
@@ -112,7 +124,4 @@ function game() {
     });
 }
 
-resetGame();
-
-game();
 
