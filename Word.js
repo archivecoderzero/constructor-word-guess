@@ -1,4 +1,3 @@
-
 var Letter = require('./Letter.js');
 function Word(wordString) {
     this.letterArray = [];

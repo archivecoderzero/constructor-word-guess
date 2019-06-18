@@ -1,7 +1,6 @@
 var Word = require('./Word.js');
 var inquirer = require('inquirer');
 var chalkAnimation = require("chalk-animation");
-
 var picked;
 var pickedWord;
 var guesses;
@@ -21,17 +20,17 @@ function initialize() {
         ])
         .then(function (inquirerResponse) {
             function intro() {
-                const rainbow = chalkAnimation.rainbow('Welcome to Word Guess Game ' + 
-                
+                const rainbow1 = chalkAnimation.rainbow('Welcome to Word Guess Game ' + 
                 inquirerResponse.username); // Animation starts
                 setTimeout(() => {
-                    rainbow.start(); // Animation resumes
+                    rainbow1.start(); // Animation resumes
                 }, 0)
+                
                 setTimeout(() => {
-                    const rainbow = chalkAnimation.rainbow("Press a key to continue"); // Animation starts
+                    const rainbow = chalkAnimation.neon("Press a letter then press enter"); // Animation starts
                     setTimeout(() => {
                         rainbow.start(); // Animation resumes
-                    }, 0)
+                    }, 5000)
     
 
 
@@ -97,7 +96,7 @@ function game() {
             }, 0);    
             setTimeout(() => {
                 process.exit();
-            }, 50000); 
+            }, 5000); 
         }
         if (answers.playAgain) {
             resetGame();
