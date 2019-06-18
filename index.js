@@ -79,16 +79,14 @@ function game() {
 
     inquirer.prompt(questions).then(answers => {
         if ('playAgain' in answers && !answers.playAgain) {
-            const glitch = chalkAnimation.glitch('Good Bye! Thanks For Playing!'); 
-            const glitch2 = chalkAnimation.glitch('Good Bye! Thanks For Playing!'); 
-            const glitch3 = chalkAnimation.glitch('Good Bye! Thanks For Playing!'); 
-            const glitch4 = chalkAnimation.glitch('Good Bye! Thanks For Playing!'); 
+            const neon1 = chalkAnimation.pulse('GoodBye! Th      or Playing!\nGo   Bye! ThanksFo  Pla     \nGoodBye!     ks     Playing!\nGo  Bye!     ks     Pla    \nGoodBye!     ks     Playing!'); 
+
             setTimeout(() => {
-                glitch.start(); 
+                neon1.start(); 
             }, 0);    
             setTimeout(() => {
                 process.exit();
-            }, 3000); 
+            }, 50000); 
         }
         if (answers.playAgain) {
             resetGame();
