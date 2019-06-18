@@ -24,10 +24,13 @@ function initialize() {
                 const rainbow = chalkAnimation.rainbow('Welcome to Word Guess Game ' + inquirerResponse.username); // Animation starts
                 setTimeout(() => {
                     rainbow.start(); // Animation resumes
-                }, 0);
+                }, 0)
+                setTimeout(() => {
+                    console.log("exit")
+                    initialize.exit();
+                }, 1000); 
             }
             intro();
-
             resetGame();
             game();
         
