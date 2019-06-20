@@ -41,7 +41,7 @@ Loss Condition :
 - If the player runs out of tries, the game will prompt the user if they wanted to play again and it will display the answer that the player did not guess . 
 
 Exit Condition :
--  If the player decided he has had enough and pressed , NO , the application will then exit out . Coded on this game is the delay before the exit message shows . 
+-  If the player decided he has had enough and pressed , NO , the application will then exit out and show the animation, tere is a delay in the animation before the applicaiton exits out . 
 
 ![image](https://github.com/archivecoderzero/constructor-word-guess/blob/master/image/n1.PNG) 
 
