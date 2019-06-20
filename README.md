@@ -31,6 +31,8 @@ If the letter is already guessed , just like in the prior hangman game , it woul
 
 ## Win Condition :
 Once the player guessed the answer, it will prompt them if they want to continue playing, if they picked Yes, then it will reload the main game again . 
+
+
 ![image](https://github.com/archivecoderzero/constructor-word-guess/blob/master/image/n6.PNG) 
 
 ## Loss Condition and Exit :
