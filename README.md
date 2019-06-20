@@ -1,4 +1,4 @@
-# constructor-word-guess-game by ArchiveCoderZero : 
+# constructor-word-guess-game
 
 This is the Constructor-word-guess-game , a hangman style game that uses NodeJs technology.  This game is similar to hangman where the user will guess a word, based on the array that is provided by the developer, in this case for ease of demonstration purposes, we have (test one , test two , test three .. so on and so forth ...) ..
 
@@ -8,12 +8,8 @@ This node applications uses the following NPM :
 
 Please install the the package.json . 
 
-# introduction : 
-
-the application starts with asking the player to add their name : 
-
-
 ## Introduction : Adding a username : 
+the application starts with asking the player to add their name : 
 
 ![image](https://github.com/archivecoderzero/constructor-word-guess/blob/master/image/n2.PNG) 
 
